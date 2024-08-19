@@ -1,11 +1,7 @@
-{{> header}}
-
-<main>
-    {{#each posts}}
-        {{> post}}
-    {{else}}
-        <p>No blog post yet!</p>
-    {{/each}}
-</main>
-
-{{> footer}}
+{{#each posts}}
+<div class="post">
+    <h2>{{this.title}}</h2>
+    <p>by {{this.user.username}}</p>
+    <p>{{this.content}}</p>
+</div>
+{{/each}}
