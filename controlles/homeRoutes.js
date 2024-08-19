@@ -1,22 +1,21 @@
 const router = require('express').Router();
 const { Post, User } = require('../models');
-const { getAttributes } = require('../models/User');
 
 router.get('/', async (req, res) => {
     try {
-        const postData = await Post.FindAll({
+        const postData = await Post.findAll({
             include: [
                 {
                     model: User,
-                    getAttributes: ['username'],
+                    attributes: ['username'],
                 },
             ],
         });
 
-        const post = postData.map((post) => post.get({plain: true}));
+        const posts = postData.map((post) => post.get({ plain: true }));
 
-        res.render('homeoage', {
-            post, 
+        res.render('homepage', {
+            posts, 
             loggedIn: req.session.loggedIn,
         });
     } catch (err) {
@@ -24,6 +23,6 @@ router.get('/', async (req, res) => {
     }
 });
 
-//other home-related routes...
+// Other home-related routes...
 
-module.exports = router; 
+module.exports = router;
