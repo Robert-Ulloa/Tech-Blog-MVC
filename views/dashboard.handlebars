@@ -1,0 +1,19 @@
+{{> header}}
+
+<main>
+    <h1>Your Dashborad</h1>
+    <button id="new-post-btn"> Create New Post </button>    
+
+    {{#each posts}}
+    <div>
+        <h2>{{title}}</h2>
+        <p>{{content}}</p>
+        <button class="edit-post-btn" data-id="{{id}}">Edit</button>
+        <button class="delete-post-btn" data-id="{{id}}">Delete</button>
+    </div>
+    {{else}}
+    <p>You haven't written any posts yet</p>
+    {{/each}}
+</main>
+
+{{> footer }}

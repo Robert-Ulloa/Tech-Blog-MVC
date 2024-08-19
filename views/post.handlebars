@@ -1,0 +1,24 @@
+{{> header}}
+
+<main>
+    <h1>{{title}}</h1>
+    <p> By {{username}} on {{format_date createdAt}}</p>
+    <p>{{content}}</p>
+
+    <section id="comments">
+        {{#each comments}}
+            {{> comment}}
+        {{else}}
+            <p>No comments yet.</p>
+        {{/each}}
+    </section>
+
+    {{#if loggedIn}}
+        <form id="new-comment-form">
+            <textarea name="comment" placeholder="Write your comment here"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    {{/if}}
+</main>
+
+{{> footer}}

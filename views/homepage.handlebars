@@ -1,0 +1,11 @@
+{{> header}}
+
+<main>
+    {{#each posts}}
+        {{> post}}
+    {{else}}
+        <p>No blog post yet!</p>
+    {{/each}}
+</main>
+
+{{> footer}}
