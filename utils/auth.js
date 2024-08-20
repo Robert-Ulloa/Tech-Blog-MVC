@@ -1,9 +1,9 @@
-const viewAuth = (req, res, next) => {
-    if (!req.session.loggedIn) {
+const withAuth = (req, res, next) => {
+    if (!req.session.logged_in) {
         res.redirect('/login');
     } else {
-        nest ();
+        next();
     }
 };
 
-module.exports = viewAuth;
+module.exports = withAuth;
