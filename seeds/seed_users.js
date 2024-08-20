@@ -1,23 +1,24 @@
 const sequelize = require('../config/connection');
 const { User } = require('../models');
- 
+
 const userData = [
     {
         username: 'JohnDoe',
-        email: 'john.doe@example.com',
-        password: 'password123',
+        email: 'johndoe@example.com',
+        password: 'password123',  // This will be hashed by the User model's hook
     },
     {
-        username: 'JaneDoe',
-        email: 'jane.doe@example.com',
-        password: 'password456',
+        username: 'JaneSmith',
+        email: 'janesmith@example.com',
+        password: 'password456',  // This will be hashed by the User model's hook
     },
+    // Add more users as needed
 ];
 
 const seedUsers = async () => {
-    await sequelize.sync({ force: true });
+    await sequelize.sync({ force: true });  // Recreate tables
     await User.bulkCreate(userData, {
-        individualHooks: true,
+        individualHooks: true,  // Ensures password hashing
         returning: true,
     });
 };

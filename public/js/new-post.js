@@ -7,13 +7,14 @@ const newPostHandler = async (event) => {
     if (title && content) {
         const response = await fetch('/api/posts', {
             method: 'POST',
-            body: JSON.stringify({title, content}),
-            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify({ title, content }),
+            headers: { 'Content-Type': 'application/json' },
         });
+
         if (response.ok) {
             document.location.replace('/dashboard');
         } else {
-            alert ('Failed to create post.');
+            alert('Failed to create post.');
         }
     }
 };

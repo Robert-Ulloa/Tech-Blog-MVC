@@ -3,16 +3,19 @@ const { Post } = require('../models');
 const postData = [
     {
         title: 'Understanding MVC Architecture',
-        content: 'MVC acquitecture divides an application into three interconnected components: Model, View, and Controller...',
-        user_id: 1,
+        content: 'Model-View-Controller (MVC) architecture is a software design pattern...',
+        user_id: 1,  // Assumes the first user is the author
     },
     {
-        title: 'Why JavaScript is awesome',
-        content: 'JavaScript is a versatile language that can be used for both frontend and backend development...',
-        user_id: 2,
+        title: 'JavaScript: The Good Parts',
+        content: 'JavaScript is a versatile and powerful language that is essential for web development...',
+        user_id: 2,  // Assumes the second user is the author
     },
+    // Add more posts as needed
 ];
 
-const seedPosts = () => Post.bulkCreate(postData);
+const seedPosts = async () => {
+    await Post.bulkCreate(postData);
+};
 
 module.exports = seedPosts;

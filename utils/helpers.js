@@ -1,15 +1,21 @@
-const { format } = require("sequelize/lib/utils");
-
 module.exports = {
     format_date: (date) => {
-        //format date as mm/dd/yyyy
+        // Format date as MM/DD/YYYY
         return date.toLocaleDateString();
     },
     format_plural: (word, amount) => {
-        //pluralize words
-        if (amount !== 1 ) {
+        // Pluralize words based on the amount
+        if (amount !== 1) {
             return `${word}s`;
         }
         return word;
+    },
+    format_url: (url) => {
+        // Simplify URLs for display
+        return url
+            .replace('http://', '')
+            .replace('https://', '')
+            .replace('www.', '')
+            .split('/')[0];
     },
 };
