@@ -1,4 +1,4 @@
-{{> header}}
+
 
 <main>
     <h1>{{title}}</h1>
@@ -8,8 +8,6 @@
     <section id="comments">
         {{#each comments}}
             {{> comment}}
-        {{else}}
-            <p>No comments yet.</p>
         {{/each}}
     </section>
 
@@ -20,5 +18,3 @@
         </form>
     {{/if}}
 </main>
-
-{{> footer}}
